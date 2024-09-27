@@ -1,6 +1,4 @@
-1. What is the difference between Component and PureComponent? Give an example where it might break my app.
-
-# Answer
+# 1. What is the difference between Component and PureComponent? Give an example where it might break my app.
 
 Component and PureComponent were commonly used with the class-based React ( till 16th version ).
 The main difference are in provided lifecycle methods and rendering way. Component doesn't not have 'shouldComponentUpdate' and that means, it will be affected by each render. PureComponent allows us to use 'shouldComponentUpdate'. This lifecycle method return boolean value. If this method was used, rendering of a component will depend from a value, that will be returned.
@@ -9,25 +7,19 @@ Rendering won't be applied, because React compare references to memory ( in case
 
 ---
 
-2. Context + ShouldComponentUpdate might be dangerous. Why is that?
-
-# Answer
+# 2. Context + ShouldComponentUpdate might be dangerous. Why is that?er
 
 Context show it's data directly to a component, instead of passing it like props. But PureComponent rely on props, so it may be not updated, in case of changing some values inside a context.
 
 ---
 
-3. Describe 3 ways to pass information from a component to its PARENT.
-
-# Answer
+# 3. Describe 3 ways to pass information from a component to its PARENT.
 
 1. Pass function from parent as a prop and call it from a child with some data.
 2. Bind child and parent to the same context object, then - update it from a child.
 3. Use libraries, like Redux ( basically, the same as context ), Tanstack query, etc...
 
 ---
-
-4. Give 2 ways to prevent components from re-rendering.
 
 # Answer
 
@@ -36,17 +28,13 @@ Context show it's data directly to a component, instead of passing it like props
 
 ---
 
-5. What is a fragment and why do we need it? Give an example where it might break my app.
-
-# Answer
+# 5. What is a fragment and why do we need it? Give an example where it might break my app.
 
 <React.Fragment></React.Fragment> or <></> allows us to group a some amount of elements and return it without wrapping in a <div> or smth like. Actually, no idea how it can break an app :d
 
 ---
 
-6. Give 3 examples of the HOC pattern.
-
-# Answer
+# 6. Give 3 examples of the HOC pattern.
 
 1. Create protected Route. Some of routes could be shown only for authorized users.
 2. Error boundary. A common thing for React app, that prevents app from crashing and shows some fancy screen, e g: Something went wrong. Choose a developer to fire.
@@ -54,9 +42,7 @@ Context show it's data directly to a component, instead of passing it like props
 
 ---
 
-7. What's the difference in handling exceptions in promises, callbacks and async...await?
-
-# Answer
+# 7. What's the difference in handling exceptions in promises, callbacks and async...await?
 
 Promise:
 
@@ -73,9 +59,7 @@ Async/await:
 
 ---
 
-8. How many arguments does setState take and why is it async.
-
-# Answer
+# 8. How many arguments does setState take and why is it async.
 
 setState((prevState) => {... Return new state ....}, () => { ... Do something once effect was applied ....})
 Async is needed to batch all 'setState' call and do not trigger them one by one.
@@ -88,9 +72,7 @@ setState(3)
 
 ---
 
-9. List the steps needed to migrate a Class to Function Component.
-
-# Answer
+# 9. List the steps needed to migrate a Class to Function Component.
 
 In case of 1 component only:
 
@@ -106,9 +88,7 @@ In case of an entire codebase:
 
 ---
 
-10. List a few ways styles can be used with components.
-
-# Answer
+# 10. List a few ways styles can be used with components.
 
 1. Inline. <span style={{marginTop: 10, padding: 5, display: 'flex'}}>.....</span>
 2. Define className according to style files. <span className="some-fancy-span">....</span>
@@ -116,8 +96,6 @@ In case of an entire codebase:
 
 ---
 
-11. How to render an HTML string coming from the server.
-
-# Answer
+# 11. How to render an HTML string coming from the server.
 
 Use dangerouslySetInnerHTML, but it's better to avoid this feature at all. Server may send some script, and it will be executed on client side.
