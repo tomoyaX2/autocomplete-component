@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AutoComplete from "./components/Auto-complete";
+import { useAlbumsState } from "./shared/models/album";
 
 function App() {
+  const {
+    loadData,
+    isDataLoading,
+    currentlySelectedAlbum,
+    onSelectCurrentAlbum,
+    autocompleteItems,
+    isTheLastPage,
+    onClear,
+  } = useAlbumsState();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AutoComplete
+        data={autocompleteItems ?? []}
+        isDataLoading={isDataLoading}
+        onSelection={onSelectCurrentAlbum}
+        loadData={loadData}
+        isTheLastPage={isTheLastPage}
+        onClear={onClear}
+      />
+      {currentlySelectedAlbum && (
+        <span className="selected-text">
+          Currently selected item: {currentlySelectedAlbum.title}
+        </span>
+      )}
     </div>
   );
 }

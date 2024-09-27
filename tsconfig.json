@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
+    // there should be absolute paths, but third party libraries are banned :(
+    // "paths": {
+    //   "@components/*": ["src/components/*"],
+    //   "@/*": ["src/*"],
+    //   "@hooks/*": ["src/hooks/*"]
+    // },
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -20,7 +22,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
